@@ -38,12 +38,12 @@ const RegisterPage = () => {
   return (
     <>
     <center>
-      <h1>Allsmart Home Appliance Service Center</h1>
+      <h1>Home Appliance Service Center</h1>
     <div className="register-container">
-      <h2>Customer Register</h2>
+      <h2>Register</h2>
       <form onSubmit={handleRegister}>
         <label>
-        First Name:
+          First Name:&nbsp;&nbsp;
           <input
             type="text"
             value={firstName}
@@ -53,7 +53,7 @@ const RegisterPage = () => {
         </label>
      
         <label>
-          Last Name:
+          Last Name:&nbsp;&nbsp;&nbsp;
           <input
             type="text"
             value={lastName}
@@ -61,31 +61,29 @@ const RegisterPage = () => {
             onChange={(e) => setLastName(e.target.value)}
           />
         </label>
-      <div className='gen'>
-        <label><p>
-          Gender:
+      
+        <label>
+          Gender: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <select
             value={gender}
             required
-            onChange={(e) => setGender(e.target.value)}>
+            onChange={(e) => setGender(e.target.value)}
+          >
             <option value=""></option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
-          </p>
         </label>
-        </div>
-       
         <label>
           Age: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input
             type="number"
             value={age}
+            min="0"
             required
             onChange={(e) => setAge(e.target.value)}
           />
         </label>
-       
         <label>
           Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input

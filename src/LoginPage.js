@@ -1,66 +1,48 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import './LoginPage.css'; // Import the CSS file for styling
+import { Link } from 'react-router-dom';
 
-const LoginPage = ({ setIsLoggedIn }) => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('http://127.0.0.1:8080/api/login', { email, password });
-      setMessage(response.data.message);
-      setIsLoggedIn(true);
-      navigate('/'); // Redirect to home page after successful login
-    } catch (error) {
-      setMessage(error.response.data.message);
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Perform login logic or authentication here
+    console.log('Email:', email);
+    console.log('Password:', password);
   };
 
   return (
-    <>
-    <body><center>
-    <h1>Allsmart Home Appliance Service Center</h1>
-    <div className="login-container">
-      <h2>Customer Login</h2>
-      <form onSubmit={handleLogin}>
-        <p><label>Email:</label>
-        <input
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
             type="email"
+            id="email"
             value={email}
-            required
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
           />
-        <br />
-          </p>
-        <label>
-          Password:
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
+            id="password"
             value={password}
-            required
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
           />
-        </label>
-        <br />
+        </div>
         <button type="submit">Login</button>
-        <br />
       </form>
-      {message && <p>{message}</p>}
-      <div className="login-links">
-        <button onClick={() => navigate('/')}>Go to Home</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button onClick={() => navigate('/register')}>Go to Register</button>
-      </div>
-      <br />
+      <p>
+        Don't have an account? <Link to="/register">Register</Link>
+      </p>
+      <p>
+        Admin login? <Link to="/adminlogin">Admin Login</Link>
+      </p>
     </div>
-    </center>
-    </body>
-    </>
   );
 };
 

@@ -1,59 +1,38 @@
-.login-container {
-    width: 400px;
-    padding: 10px;
-    border: 1px solid #a49d6e;;
-    border-radius: 5px;
-    background-color: #a49d6e;
-    margin-top: 50px;
-  }
-  
-  h2 {
-    text-align: center;
-  
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-  }
-  
-  input {
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-  }
-  
-  button[type="submit"], button {
-    margin-top: 10px;
-    padding: 10px 16px;
-    border-radius: 3px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover, button:hover {
-    background-color: #45a049;
-  }
-  
-  .login-links {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  p {
-    margin-top: 10px;
-    text-align: center;
-    color: red;
-  }
-  
+.Login {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Link {
+  text-decoration: none;
+  color: #000;
+}
