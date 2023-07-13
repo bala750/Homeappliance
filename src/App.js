@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import RegisterPage from './RegisterPage';
+import React from 'react';
+import Navbar from "./Components/Navbar";
+import { BrowserRouter, Route,Routes } from 'react-router-dom';
 import LoginPage from './LoginPage';
-import HomePage from './HomePage';
-import AdminLogin from './AdminLogin';
-//import AdminLogin from './pages/AdminLogin';
-const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+import SignupPage from './SignUpPage';
+import About from './About';
+import Contact from './Contact';
+import Home from './Home';
+import Policy from './Policy'
 
-  return (
-    <Router>
+function App() {
+	return (
+		<React.Fragment>
+      <BrowserRouter>
       <Routes>
-        <Route path="/register" element={<RegisterPage />} />
-        <Route
-          path="/login"
-          element={isLoggedIn ? <Navigate to="/" replace /> : <LoginPage setIsLoggedIn={setIsLoggedIn} />}
-         //element={<HomePage />}
-        />
-        <Route
-          path="/"
-          element={isLoggedIn ? <HomePage /> : <Navigate to="/login" replace />}
-          //element={<HomePage />}
-        />
-        <Route path="/adminlogin" element={<AdminLogin />}/>
+        <Route exact path="/" element={<Navbar/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/SignupPage" element={<SignupPage/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/Contact" element={<Contact/>}/>
+        <Route path="/Home" element={<Home/>}/>
+        <Route path="/Policy" element={<Policy/>}/>
       </Routes>
-    </Router>
-  );
-};
+      </BrowserRouter>
+			
+		</React.Fragment>
+	);
+}
 
 export default App;
